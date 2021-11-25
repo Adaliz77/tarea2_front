@@ -17,22 +17,22 @@ function submitPrevent(event) {
 
   function handleLogin() {
     const loginData = getLoginData();
-    getLoginDataFetch(loginData);
-    getRoleDataFetch(loginData);
-    if (getLoginDataFetch(loginData)) {
+    PostLoginFetch(loginData);
 
-        if (getRoleDataFetch(loginData)) {
-            window.location.href = "./viewWorker.html";
-         
-        } else {
-            window.location.href = "./viewAdmin.html";
-        }
-    } else {
-        alert("no se ha logueado correctamente");
-    }
-}
+     if (PostLoginFetch(loginData)) {
+        window.location.href = "./viewAdmin.html";
+     }
     
+     else if (!PostLoginFetch(loginData)) {
+        window.location.href = "./viewAdmin.html";
+        }
+    
+        else {
+            alert("no te has logueado correctamente");
+        }
 
+    }
+    
    //Función para obtener los values de los inputs insertados por el usuario
    function getLoginData() {
        
@@ -51,14 +51,12 @@ function submitPrevent(event) {
       return myLoginData;
     }
 
-  
 //Evento botón submit enviado datos del form
 loginBtnEl.addEventListener("click", handleLogin);
 
 
-
 // POST
-const postDataFetch = async (data) => {
+const PostLoginFetch = async (data) => {
   console.log(data);
   console.log(JSON.stringify(data));
 
@@ -75,16 +73,18 @@ const postDataFetch = async (data) => {
     responseTextEl.innerHTML = `Ha habido un error con el fetch: Error: ${error.message}`;
   });
 
-  console.log(res, 'consolelog')
+  console.log(res, 'consolelog');
 
-  if (!responseTextEl.innerHTML === "") {
-    return false;
-  } 
+  if (res === true) {
 
+    return "admin";
 
+  }  else if (res === false) {
 
-  //const data = await res.json();
+    return "worker";
+  }
 
- //console.log(data, 'response2');
+  
+    const jsonResponse = await res.json();
 
 }
