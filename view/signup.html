@@ -30,13 +30,54 @@
             </div>
           </nav>
     </header>
+
     <main class="main-index">
-        <section>
-            <h1>Capgemini</h1>
-        </section>
+      <section>
+        <form class="js-signUpForm">
+          <div class="form-group">
+            <label for="dni">Dni</label>
+            <input type="text" class="form-control js-signUpDniInput" id="dni" placeholder="Enter dni">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control js-signUpPassInput" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control js-signUpNameInput" id="name" placeholder="Enter name">
+          </div>
+          <div class="form-group">
+            <label for="name">Apellido</label>
+            <input type="text" class="form-control js-signUpSurnameInput" id="surname" placeholder="Enter Surname">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control js-signUpEmailInput" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="telephone" class="form-label">Telephone</label>
+            <input type="tel" class="form-control js-signUpTelInput" id="telephone">
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Dirección</label>
+            <input type="text" class="form-control js-signUpAddInput" id="address" placeholder="Enter address">
+          </div>
+          <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <input type="text" class="form-control js-signUpDeptInput" id="department" placeholder="Enter department">
+          </div>
+          <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <input type="text" class="form-control js-signUpRoleInput" id="role" placeholder="role">
+          </div>
+          <button type="submit" class="btn btn-primary js-signUpBtn">Crear cuenta</button>
+        </form>
+    </section>
     </main>
     <footer></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../js/signUp.js"></script>
 </body>
 </html>
