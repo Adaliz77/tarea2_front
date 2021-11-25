@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Home</a>
+              <a class="navbar-brand" href="../index.html">Home</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -32,7 +32,20 @@
     </header>
     <main class="main-index">
         <section>
-            <h1>Capgemini</h1>
+            <h1>Login</h1>
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
         </section>
     </main>
     <footer></footer>
