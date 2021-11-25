@@ -29,8 +29,12 @@ function submitPrevent(event) {
   function handleSignUpBtn() {
     const workerData = getWorkerData();
     postDataFetch(workerData);
-    //resetValues();
-}
+    if (postDataFetch) {
+        alert("su cuenta se ha creado correctamente");
+        window.location.href = "./login.html"
+        }
+
+    }
 
    //Función para obtener los values de los inputs insertados por el usuario
    function getWorkerData() {
@@ -73,7 +77,7 @@ const postDataFetch = async (data) => {
   console.log(data);
   console.log(JSON.stringify(data));
 
-  //const url = `http://localhost:8080/alumnos`;
+  const url = `http://localhost:8080/api/trabajadores`;
   const res = await fetch(url, {
     method: "POST",
     contentType: "application.json",
@@ -87,6 +91,13 @@ const postDataFetch = async (data) => {
   });
 
   console.log(res, 'consolelog')
+
+  if (!responseTextEl.innerHTML === "") {
+    return false;
+  } 
+
+
+
   //const data = await res.json();
 
  //console.log(data, 'response2');
