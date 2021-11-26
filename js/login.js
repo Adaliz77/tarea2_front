@@ -17,24 +17,13 @@ function submitPrevent(event) {
 
   function handleLogin() {
     const loginData = getLoginData();
-    PostLoginFetch(loginData);
-
-     if (PostLoginFetch(loginData)) {
-        window.location.href = "./viewAdmin.html";
-     }
-    
-     else if (!PostLoginFetch(loginData)) {
-        window.location.href = "./viewAdmin.html";
-        }
-    
-        else {
-            alert("no te has logueado correctamente");
-        }
-
-    }
+    const loginResponse = PostLoginFetch(loginData);
+    //redirectUser(loginResponse);
+     
+  }
     
    //Función para obtener los values de los inputs insertados por el usuario
-   function getLoginData() {
+  function getLoginData() {
        
     console.log(loginEmailInput.value);
     console.log(loginPassInput.value);
@@ -49,18 +38,23 @@ function submitPrevent(event) {
         console.log(myLoginData);
 
       return myLoginData;
-    }
+  }
+
+  function redirectUser(response) {
+   
+
+  }
 
 //Evento botón submit enviado datos del form
 loginBtnEl.addEventListener("click", handleLogin);
 
 
-// POST
+// POST LOGIN
 const PostLoginFetch = async (data) => {
   console.log(data);
   console.log(JSON.stringify(data));
 
-  //const url = `http://localhost:8080/api/trabajadores`;
+  const url = `http://localhost:8080/api/trabajadores`;
   const res = await fetch(url, {
     method: "POST",
     contentType: "application.json",
@@ -70,21 +64,30 @@ const PostLoginFetch = async (data) => {
     //mode: "no-cors",
     body: JSON.stringify(data)
   }).catch((error) => {
-    responseTextEl.innerHTML = `Ha habido un error con el fetch: Error: ${error.message}`;
+    //responseTextEl.innerHTML = `Ha habido un error con el fetch: Error: ${error.message}`;
   });
 
   console.log(res, 'consolelog');
 
-  if (res === true) {
+  //const redirection = res;
 
-    return "admin";
+  if (res.ok) {
+      if (res) {
+        window.location.href = "./viewAdmin.html";
+    }
 
-  }  else if (res === false) {
+    else if (!res) {
+        window.location.href = "./viewWorker.html";
+        
+      }
 
-    return "worker";
-  }
+      else {
+            alert("no te has logueado correctamente");
+      }
+
+      
+}
 
   
-    const jsonResponse = await res.json();
 
 }

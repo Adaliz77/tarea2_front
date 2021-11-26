@@ -29,13 +29,8 @@ function submitPrevent(event) {
   function handleSignUpBtn() {
     const workerData = getWorkerData();
     postDataFetch(workerData);
-    if (postDataFetch) {
-        alert("su cuenta se ha creado correctamente");
-        window.location.href = "./login.html"
-        }
-
-    }
-
+  
+  }
    //Función para obtener los values de los inputs insertados por el usuario
    function getWorkerData() {
        
@@ -87,13 +82,16 @@ const postDataFetch = async (data) => {
     //mode: "no-cors",
     body: JSON.stringify(data)
   }).catch((error) => {
-    responseTextEl.innerHTML = `Ha habido un error con el fetch: Error: ${error.message}`;
+    //responseTextEl.innerHTML = `Ha habido un error con el fetch: Error: ${error.message}`;
+    alert("No se ha podido conectar con el servidor , su cuenta no se ha podido crear");
+
   });
 
   console.log(res, 'consolelog')
 
-  if (!responseTextEl.innerHTML === "") {
-    return false;
+  if (res.ok) {
+    alert("su cuenta se ha creado correctamente");
+    window.location.href = "./login.html"
   } 
 
 
