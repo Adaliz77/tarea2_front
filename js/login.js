@@ -64,7 +64,7 @@ const PostLoginFetch = async (data) => {
     //mode: "no-cors",
     body: JSON.stringify(data)
   }).catch((error) => {
-    //responseTextEl.innerHTML = `Ha habido un error con el fetch: Error: ${error.message}`;
+    alert(`Ha habido un error con el fetch: Error: ${error.message}`);
   });
 
   console.log(res, 'consolelog');
@@ -85,7 +85,7 @@ const PostLoginFetch = async (data) => {
             alert("no te has logueado correctamente");
       }
 
-      
+
 }
 
   
